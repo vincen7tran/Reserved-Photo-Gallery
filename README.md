@@ -34,6 +34,7 @@ From within the root directory:
 
 ```sh
 npm run react-dev
-nodemon index.js (from server folder)
+nodemon server/index.js
+node db/index.js
 ```
 

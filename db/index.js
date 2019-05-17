@@ -1,12 +1,10 @@
-// include mongoose in project and open a connection
 let mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/restaurants');
 
 var faker = require('faker');
 
-
-// get notified if we connect successfully or if a connection error occurs:
 let db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('we\'re connected!');
@@ -32,9 +30,10 @@ db.once('open', function() {
   var randomUser = faker.internet.userName();
   var randomDate = faker.date.recent();
   var restaurantId = Math.floor(Math.random() * Math.floor(100));
-  var images = [];
   
-  // for loop to 100 pushing data into array
+
+
+  // set up a for loop to save 100 restaurants in db, ending on line 54
   var restaurant = new Restaurant({
     restaurant_id: restaurantId,
     photos: []
@@ -52,9 +51,9 @@ db.once('open', function() {
   restaurant.photos.push(restaurantPhoto);
   
   restaurant.save();
-  
+  //end for loop from line 36
 
-  // consider using promise.all to close connection
+  // use promise.all to close connection
   // needs empty promise array before for loop
   // each instance of restaurant is one promise
   // need to push each restaurant instance into promises array
