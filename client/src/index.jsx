@@ -1,17 +1,18 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-class Gallery extends Component{
+class Gallery extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      numImages: 0
-    }
-  };
+      imageCount: 0
+    };
+  }
 
   render(){
     return (
       <div>
-        <h2>Hello world!</h2>
+        <h2>Hello worlddddd!</h2>
       </div>
     );
   }
