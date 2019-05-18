@@ -1,13 +1,13 @@
-let express = require('express');
-let bodyParser = require('body-parser');
-let app = express();
-let port = 3002;
-let Restaurant = require('../db/index.js');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const port = 3002;
+const Restaurant = require('../db/index.js');
 
-let jsonParser = bodyParser.json();
-let urlencodedParser = bodyParser.urlencoded();
+// let jsonParser = bodyParser.json();
+// let urlencodedParser = bodyParser.urlencoded();
 
-mongoose.connect('mongodb://localhost/restaurants');
+// mongoose.connect('mongodb://localhost/restaurants');
 
 // use Restaurant.findOne()
 app.get('/restaurants', (req, res) => res.send('Hello World'));

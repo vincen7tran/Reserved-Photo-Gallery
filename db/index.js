@@ -1,66 +1,83 @@
-let mongoose = require('mongoose');
+// mongod --config /usr/local/etc/mongod.conf
+// mongo
+// show dbs
+// use <db>
+// db.restaurants.find({})
+
+var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/restaurants');
 
+var db = mongoose.connection;
 var faker = require('faker');
-
-let db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('we\'re connected!');
-  
-  //============================== SCHEMA =========================
-  let restaurantSchema = mongoose.Schema({
-    restaurant_id: Number,
-    photos: [{
-      // photo_id: Number,
-      restaurant_id: Number,
-      file_path: String,
-      user: String,
-      date_posted: Date,
-      flagged: Boolean, 
-    }]
-  });
-  
-  // ============================== MODEL ====================================
-  let Restaurant = mongoose.model('Restaurant', restaurantSchema);
-  
-  
-  var randomImage = faker.image.food();
-  var randomUser = faker.internet.userName();
-  var randomDate = faker.date.recent();
-  var restaurantId = Math.floor(Math.random() * Math.floor(100));
-  
-
-
-  // set up a for loop to save 100 restaurants in db, ending on line 54
-  var restaurant = new Restaurant({
-    restaurant_id: restaurantId,
-    photos: []
-  });
-  
-  // for loop to push random # of photos into array
-  var restaurantPhoto = {
-    // photo_id: 1,
-    file_path: randomImage,  //update filepath and increment photo_id
-    user: randomUser,
-    date_posted: randomDate,
-    flagged: false
-  };
-  
-  restaurant.photos.push(restaurantPhoto);
-  
-  restaurant.save();
-  //end for loop from line 36
-
-  // use promise.all to close connection
-  // needs empty promise array before for loop
-  // each instance of restaurant is one promise
-  // need to push each restaurant instance into promises array
-
 });
+
+
+//============================== SCHEMA =========================
+var restaurantSchema = mongoose.Schema({
+  restaurant_id: Number,
+  photos: [{
+    file_path: String,
+    user: String,
+    date_posted: Date,
+    flagged: Boolean 
+  }]
+});
+
+// ============================== MODEL ====================================
+var Restaurant = mongoose.model('Restaurant', restaurantSchema);
+
+
+
+
+// ================= Save restaurants to db ================================
+for (var i = 1; i < 2; i++){
+
+  var randomUser = faker.internet.userName();
+  var randomDate = faker.date.recent();  
+  var numPhotosPerRestaurant = Math.floor(Math.random() * 21);
+
+  // create restaurant document / instance
+  var RestaurantInstance = function(n){
+    var obj = {};
+    obj.restaurant_id = n;
+    obj.photos = [];
+    return obj;
+  };
+  var restaurant = RestaurantInstance(i);
   
-  module.exports = Restaurant;
-  
-  
-  // run file in terminal using 'node db/index.js'
+  // push random # of photos (1 to 20) into document's photos array
+  for (var i = 0; i < numPhotosPerRestaurant; i++){
+    var Photo =  function(){
+      var photo = {};
+      photo.file_path = 'REPLACE WITH RANDOM AMAZON S3 PATH';
+      photo.user = randomUser;
+      photo.date_posted = randomDate;
+      photo.flagged = false;
+      return photo;
+    };      
+    var photo = Photo();
+    
+    console.log(restaurant);
+    restaurant.photos.push(photo);
+  }
+    
+  Restaurant.create(restaurant, function(err){
+    if (err) {
+      console.log('Unable to save restaurant to database');
+    }
+  });
+} 
+
+
+// consider using promise.all to close connection
+// needs empty promise array before for loop
+// each instance of restaurant is one promise
+// need to push each restaurant instance into promises array
+
+
+module.exports = Restaurant;
+// run file in terminal using 'node db/index.js'
