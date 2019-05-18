@@ -20,4 +20,4 @@ app.use(bodyParser.urlencoded());
 app.use(express.static('../client/dist'));
 
 
-app.listen(port, () => console.log('Listening on port ${port}'));
+app.listen(port, () => console.log( 'Listening on port ' + port ));

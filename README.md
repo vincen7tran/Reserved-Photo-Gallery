@@ -33,8 +33,13 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
+
 npm run react-dev
-nodemon server/index.js
-node db/index.js
+nodemon ./server/index.js
+node ./db/index.js
+mongod --config /usr/local/etc/mongod.conf
+mongo
+node ./db/seed.js
+
 ```
 
