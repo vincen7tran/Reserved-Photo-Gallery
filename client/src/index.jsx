@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
 class Gallery extends React.Component{
   constructor(props){
@@ -9,10 +10,28 @@ class Gallery extends React.Component{
     };
   }
 
+  getRequest(){
+    $.ajax({
+      url: '/restaurants',
+      success: function(data){
+        console.log(data);
+      },
+      error: function(err){
+        console.log(err);
+      },
+      contentType: 'application/json',
+      dataType: 'json'
+    });
+  }
+
+  componentDidMount(){
+    this.getRequest()
+  }
+
   render(){
     return (
       <div>
-        <h2>Hello worlddddd!</h2>
+        <h2>React rendered!</h2>
       </div>
     );
   }

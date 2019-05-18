@@ -11,7 +11,7 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('we\'re connected!');
+  console.log('Database connected!');
 });
 
 
@@ -30,9 +30,15 @@ var restaurantSchema = mongoose.Schema({
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 
-
-
-
+// ================== QUERY =========================
+var getRestaurant = function(callback){
+  Restaurant.find({}, function(err, restaurants){
+    if(err){
+      callback(err);
+    }
+    callback(null, restaurants);
+  });
+}
 
 
 // consider using promise.all to close connection
@@ -41,5 +47,7 @@ var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 // need to push each restaurant instance into promises array
 
 
-module.exports = Restaurant;
+module.exports = {
+  getRestaurant
+};
 // run file in terminal using 'node db/index.js'

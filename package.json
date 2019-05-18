@@ -8,7 +8,8 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "seed": "node db/index.js"
+    "seed": "node db/index.js",
+    "server": "nodemon ./server/index.js"
   },
   "dependencies": {
     "faker": "^4.1.0",
