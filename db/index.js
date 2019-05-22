@@ -1,9 +1,3 @@
-// mongod --config /usr/local/etc/mongod.conf
-// mongo
-// show dbs
-// use <db>
-// db.restaurants.find({})
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/restaurants');
 
@@ -14,8 +8,7 @@ db.once('open', function() {
   console.log('Database connected!');
 });
 
-
-//============================== SCHEMA =========================
+//============================= SCHEMA =========================
 var restaurantSchema = mongoose.Schema({
   restaurant_id: Number,
   photos: [{
@@ -30,7 +23,7 @@ var restaurantSchema = mongoose.Schema({
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 
-// ================== QUERY =========================
+// ============================= QUERY =========================
 var getRestaurant = function(callback){
   Restaurant.find({}, function(err, restaurants){
     if(err){
@@ -40,14 +33,18 @@ var getRestaurant = function(callback){
   });
 }
 
-
-// consider using promise.all to close connection
-// needs empty promise array before for loop
-// each instance of restaurant is one promise
-// need to push each restaurant instance into promises array
-
-
 module.exports = {
-  getRestaurant
+  getRestaurant,
+  Restaurant
 };
-// run file in terminal using 'node db/index.js'
+
+/*
+Terminal commands to remember:
+
+mongo
+show dbs
+use <db>
+db.restaurants.find({})
+db.dropDatabase()
+re-run seed.js
+*/
