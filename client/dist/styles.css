@@ -1,0 +1,157 @@
+#photo-container {
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: 0;
+  border: 2px black solid;
+  height: 288px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1fr 142px 2fr 288px 1fr 142px 2fr 288px 1fr 142px 2fr 288px 1fr 142px 2fr 288px 1fr 142px 2fr 288px);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
+}
+
+#one { 
+  grid-area: one; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#two { 
+  grid-area: two; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#three { 
+  grid-area: three; 
+  border: 2px black solid;
+  height: 288px;
+  width: 288px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:auto;
+}
+
+#four { 
+  grid-area: four; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:auto;
+}
+
+#five { 
+  grid-area: five; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:auto;
+}
+
+#six { 
+  grid-area: six; 
+  border: 2px black solid;
+  height: 288px;
+  width: 288px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#seven { 
+  grid-area: seven; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#eight { 
+  grid-area: eight; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/8.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#nine { 
+  grid-area: nine; 
+  height: 288px;
+  width: 288px;
+  border: 2px black solid;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/9.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#ten { 
+  grid-area: ten; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/10.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#eleven { 
+  grid-area: eleven; 
+  border: 2px black solid;
+  height: 142px;
+  width: 142px;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/11.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#twelve { 
+  grid-area: twelve; 
+  height: 288px;
+  width: 288px;
+  border: 2px black solid;
+  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/12.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 767px) {
+  #photo-container {
+    height: 144px;
+    display: grid;
+    grid-template-columns: repeat(1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
+  }  
+  .size1 {
+    height: 71px;
+    width: 71px;
+  }
+  .size2 {
+    height: 144px;
+    width: 144px;
+  }
+}

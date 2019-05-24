@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/krummurk/customer-reviews
+  - https://github.com/krummurk/textDetails_module
+  - https://github.com/krummurk/reservations-module
+  - https://github.com/krummurk/photos-module
 
 ## Table of Contents
 
@@ -36,10 +36,8 @@ From within the root directory:
 
 npm run react-dev
 nodemon ./server/index.js
-node ./db/index.js
 mongod --config /usr/local/etc/mongod.conf
 mongo
 node ./db/seed.js
 
 ```
-

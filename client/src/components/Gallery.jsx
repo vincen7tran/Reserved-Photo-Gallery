@@ -14,10 +14,10 @@ class Gallery extends React.Component{
     $.ajax({
       url: '/restaurants/${restID}',
       success: function(data){
-        console.log(data);
+        console.log('restID: ',restID);
       },
       error: function(err){
-        console.log(err);
+        console.log('getRequest failed!', err);
       },
       contentType: 'application/json',
       dataType: 'json'
@@ -30,19 +30,19 @@ class Gallery extends React.Component{
 
   render(){
     return (
-      <div class="photo-container">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
-        <div class="seven"></div>
-        <div class="eight"></div>
-        <div class="nine"></div>
-        <div class="ten"></div>
-        <div class="eleven"></div>
-        <div class="twelve"></div>
+      <div id="photo-container">
+        <div className="size1" id="one"></div>
+        <div className="size1" id="two"></div>
+        <div className="size2" id="three"></div>
+        <div className="size1" id="four"></div>
+        <div className="size1" id="five"></div>
+        <div className="size2" id="six"></div>
+        <div className="size1" id="seven"></div>
+        <div className="size1" id="eight"></div>
+        <div className="size2" id="nine"></div>
+        <div className="size1" id="ten"></div>
+        <div className="size1" id="eleven"></div>
+        <div className="size2" id="twelve"></div>
       </div>
     );
   }
