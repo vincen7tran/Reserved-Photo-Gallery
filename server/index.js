@@ -2,24 +2,27 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3002;
-const Restaurant = require('../db/index.js');
+const db = require('../db/index.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/../client/dist'));
 
 
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  console.log('req.params: ', req.params);
-  Restaurant.getRestaurant(function(err, data){
+app.get('/', (req, res) => {
+  res.send(200);
+});
+
+
+app.get('/restaurants', (req, res) => {
+  var id = req.query.restaurant_id;
+  db.getPhotos(id, (err, photos) => {
     if(err){
       console.log('Unable to getRestaurant')
       res.status(500).send();
     }
-    console.log('data in server', data)
-    let photoArr = data.
-    res.status(200).send(data);
-  }); 
+    res.status(200).send(photos);
+  })
 });
 
 
