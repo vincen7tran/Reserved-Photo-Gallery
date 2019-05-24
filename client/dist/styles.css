@@ -1,3 +1,6 @@
+
+/* ============================= PHOTO CONTAINER =============================== */
+
 #photo-container {
   overflow: hidden;
   margin-left: 0;
@@ -10,6 +13,8 @@
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
 }
+
+/* ============================= INDIVIDUAL PHOTOS =============================== */
 
 #one { 
   grid-area: one; 
@@ -138,6 +143,9 @@
   background-size: cover;
 }
 
+/* ============================= MEDIA QUERY =============================== */
+
+
 @media screen and (max-width: 767px) {
   #photo-container {
     height: 144px;
@@ -154,4 +162,46 @@
     height: 144px;
     width: 144px;
   }
+}
+
+/* ============================= MODAL =============================== */
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+
+.modal-content {  
+  margin: 30px auto;
+  width: 300px;  
+}
+
+.closeBtn {
+  color: #6f737b;
+  float: right;
+  font-size: 50px;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 64em) and (min-width: 40.0625em) {
+  .modal-content {
+    width: 400px;
+  }  
+}
+@media only screen and (max-width: 40em) and (min-width: 25.0625em) {
+  .modal-content {
+    width: 300px;
+  }  
 }
