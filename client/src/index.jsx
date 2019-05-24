@@ -1,20 +1,5 @@
 import React from 'react';
-
-class Gallery extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      numImages: 0
-    }
-  };
-
-  render(){
-    return (
-      <div>
-        <h2>Hello world!</h2>
-      </div>
-    );
-  }
-}
+import ReactDOM from 'react-dom';
+import Gallery from './components/Gallery.jsx';
 
 ReactDOM.render(<Gallery />, document.getElementById('root'));
