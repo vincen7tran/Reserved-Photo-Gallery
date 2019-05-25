@@ -18,7 +18,6 @@ class Gallery extends React.Component{
     this.chooseDisplayedImages = this.chooseDisplayedImages.bind(this);
   }
 
-
   getRequest(){
     var restID = Math.floor(Math.random()*100+1).toString().padStart(3, '0');
     $.ajax({

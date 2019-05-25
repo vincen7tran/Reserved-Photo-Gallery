@@ -140,6 +140,10 @@
   height: 590px;
 }
 
+.modal-footer {
+  margin: 8px 0px;
+}
+
 .closeBtn {
   font-family: icons;
   font-style: normal;
@@ -151,12 +155,33 @@
   font-size: 50px;
 }
 
-.modal-footer {
-  margin: 8px 0px;
+.circle-holder {
+  margin: 8px 6px 0px 0px;
+  float: left;
 }
 
-.circle-holder {
-  float: left;
+.text-holder {
+  padding: 8px 0px 0px 8px;
+  margin: 8px 0px 0px 8px;
+}
+
+.text {
+  display: block;
+  padding: 4px 0px 0px 0px;
+  margin: 8px 0px 0px 8px;
+  color: white;
+  font-size: 16px;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 500;
+}
+
+.dinedOn {
+  display: block;
+  padding: 4px 0px 0px 0px;
+  color: white;
+  font-size: 16px;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 100;
 }
 
 .circle {
@@ -174,42 +199,23 @@
   display: table-cell;
 }
 
-.text-holder {
-  padding: 8px 0px 0px 8px;
-}
 
-.text {
-  display: block;
-  padding: 4px 0px 0px 0px;
-  color: white;
-  font-size: 16px;
-  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-  font-weight: 500;
-}
-
-.dinedOn {
-  display: block;
-  padding: 4px 0px 0px 0px;
-  color: white;
-  font-size: 16px;
-  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-  font-weight: 100;
-}
 
 /* ==================== RESPONSIVE RESIZING of MODAL ================== */
 
 @media only screen and (max-width: 64em) and (min-width: 40.0625em) {
-  .modal-content, .modal-content-holder {
-    height: 400px;
+  .modal-content {
     width: 400px;
+    height: 400px;
   }  
 }
 @media only screen and (max-width: 40em) and (min-width: 25.0625em) {
-  .modal-content, .modal-content-holder{
-    height: 300px;
+  .modal-content {
     width: 300px;
+    height: 300px;
   }  
 }
+
 @media only screen and (max-width: 25em) {
   .modal-content, .modal-content-holder{
     width: 200px;

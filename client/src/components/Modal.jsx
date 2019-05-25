@@ -21,7 +21,7 @@ class Modal extends React.Component{
             </div>
             <div className='text-holder'>
               <div className='text'>OpenTable Diner</div>
-              <div className='dinedOn'>Dined on January 3, 2018</div>
+              <div className='dinedOn'>Dined on January 5, 2018</div>
             </div>
           </div>
         </div>
