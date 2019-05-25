@@ -1,4 +1,3 @@
-
 /* ============================= PHOTO CONTAINER =============================== */
 
 #photo-container {
@@ -21,9 +20,7 @@
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/1.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
 }
 
 #two { 
@@ -31,9 +28,7 @@
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
 }
 
 #three { 
@@ -41,10 +36,7 @@
   border: 2px black solid;
   height: 288px;
   width: 288px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/3.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow:auto;
+  object-fit: cover;
 }
 
 #four { 
@@ -52,117 +44,73 @@
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/4.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow:auto;
+  object-fit: cover;
 }
 
-#five { 
+#five {
+  object-fit: cover; 
   grid-area: five; 
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/5.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow:auto;
 }
 
-#six { 
+#six {
+  object-fit: cover; 
   grid-area: six; 
   border: 2px black solid;
   height: 288px;
   width: 288px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/6.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-#seven { 
+#seven {
+  object-fit: cover; 
   grid-area: seven; 
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/7.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-#eight { 
+#eight {
+  object-fit: cover; 
   grid-area: eight; 
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/8.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-#nine { 
+#nine {
+  object-fit: cover; 
   grid-area: nine; 
   height: 288px;
   width: 288px;
   border: 2px black solid;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/9.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-#ten { 
+#ten {
+  object-fit: cover; 
   grid-area: ten; 
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/10.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-#eleven { 
+#eleven {
+  object-fit: cover; 
   grid-area: eleven; 
   border: 2px black solid;
   height: 142px;
   width: 142px;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/11.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-#twelve { 
+#twelve {
+  object-fit: cover; 
   grid-area: twelve; 
   height: 288px;
   width: 288px;
   border: 2px black solid;
-  background-image: url('https://s3-us-west-1.amazonaws.com/asyncphotos/12.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
-/* ============================= MEDIA QUERY =============================== */
-
-
-@media screen and (max-width: 767px) {
-  #photo-container {
-    height: 144px;
-    display: grid;
-    grid-template-columns: repeat(1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px);
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
-  }  
-  .size1 {
-    height: 71px;
-    width: 71px;
-  }
-  .size2 {
-    height: 144px;
-    width: 144px;
-  }
-}
 
 /* ============================= MODAL =============================== */
 
@@ -177,25 +125,40 @@
   background-color: rgba(0,0,0,0.9);
 }
 
-
 .modal-content {  
-  margin: 30px auto;
+  margin: 30px auto auto auto;
   width: 300px;  
 }
 
 .closeBtn {
+  font-family: icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
   color: #6f737b;
   float: right;
+  padding: 25px;
   font-size: 50px;
 }
 
-.closeBtn:hover,.closeBtn:focus{
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.circle {
+  margin: auto;
+  width: 50px;
+  height: 50px; 
+  border-radius: 50%;
+  border: 1px solid black;
+  background: #56D7D9;
+  color: white;
+  font-family: arial;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
 }
 
-@media only screen and (max-width: 64em) and (min-width: 40.0625em) {
+/* ==================== RESPONSIVE RESIZING of MODAL ================== */
+
+/* @media only screen and (max-width: 64em) and (min-width: 40.0625em) {
   .modal-content {
     width: 400px;
   }  
@@ -204,4 +167,24 @@
   .modal-content {
     width: 300px;
   }  
+} */
+
+/* ==================== RESPONSIVE RESIZING of GALLERY ================== */
+
+@media screen and (max-width: 767px) {
+  #photo-container {
+    grid-template-columns: repeat(1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
+    height: 144px;
+    display: grid;
+  }  
+  .size1 {
+    height: 71px;
+    width: 71px;
+  }
+  .size2 {
+    height: 144px;
+    width: 144px;
+  }
 }

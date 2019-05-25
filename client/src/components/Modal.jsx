@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class Modal extends React.Component{
   constructor(props){
     super(props);
@@ -12,7 +13,13 @@ class Modal extends React.Component{
     return (
       <div id='simpleModal' className='modal'>
         <span onClick={(e) => this.props.closeModal(e)} className='closeBtn'>&times;</span>
-        <div className='modal-content' id='one' />
+        <div>
+          <div className='modal-content' id='one' />
+          <div className='modal-footer'>
+            <div className='circle'>OT</div>
+            <div>OpenTable</div>
+          </div>
+        </div>
       </div>
     )
   }
