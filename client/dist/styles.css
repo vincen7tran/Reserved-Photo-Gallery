@@ -126,8 +126,18 @@
 }
 
 .modal-content {  
-  margin: 30px auto auto auto;
-  width: 300px;  
+  display: block;
+  margin: 30px auto 0px auto;
+  width: 590px;  
+  height: 590px;
+  object-fit: cover;
+}
+
+.modal-content-holder {
+  display: block;
+  margin: 30px auto 0px auto;
+  width: 590px;  
+  height: 590px;
 }
 
 .closeBtn {
@@ -139,6 +149,14 @@
   float: right;
   padding: 25px;
   font-size: 50px;
+}
+
+.modal-footer {
+  margin: 8px 0px;
+}
+
+.circle-holder {
+  float: left;
 }
 
 .circle {
@@ -156,28 +174,58 @@
   display: table-cell;
 }
 
+.text-holder {
+  padding: 8px 0px 0px 8px;
+}
+
+.text {
+  display: block;
+  padding: 4px 0px 0px 0px;
+  color: white;
+  font-size: 16px;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 500;
+}
+
+.dinedOn {
+  display: block;
+  padding: 4px 0px 0px 0px;
+  color: white;
+  font-size: 16px;
+  font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-weight: 100;
+}
+
 /* ==================== RESPONSIVE RESIZING of MODAL ================== */
 
-/* @media only screen and (max-width: 64em) and (min-width: 40.0625em) {
-  .modal-content {
+@media only screen and (max-width: 64em) and (min-width: 40.0625em) {
+  .modal-content, .modal-content-holder {
+    height: 400px;
     width: 400px;
   }  
 }
 @media only screen and (max-width: 40em) and (min-width: 25.0625em) {
-  .modal-content {
+  .modal-content, .modal-content-holder{
+    height: 300px;
     width: 300px;
   }  
-} */
+}
+@media only screen and (max-width: 25em) {
+  .modal-content, .modal-content-holder{
+    width: 200px;
+    height: 200px;
+  }
+}
 
 /* ==================== RESPONSIVE RESIZING of GALLERY ================== */
 
 @media screen and (max-width: 767px) {
   #photo-container {
+    height: 144px;
+    display: grid;
     grid-template-columns: repeat(1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px);
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
-    height: 144px;
-    display: grid;
   }  
   .size1 {
     height: 71px;

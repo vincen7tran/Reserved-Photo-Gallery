@@ -1,23 +1,28 @@
 import React from 'react';
 
-
 class Modal extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      currentPhoto: 'https://s3-us-west-1.amazonaws.com/asyncphotos/1.jpg'
+      currentPhoto: this.props.modalImage
     };
   }
+
 
   render(){
     return (
       <div id='simpleModal' className='modal'>
         <span onClick={(e) => this.props.closeModal(e)} className='closeBtn'>&times;</span>
-        <div>
-          <div className='modal-content' id='one' />
+        <div className='modal-content-holder'>
+          <img className='modal-content' src={this.props.modalImage} />
           <div className='modal-footer'>
-            <div className='circle'>OT</div>
-            <div>OpenTable</div>
+            <div className='circle-holder'>
+              <p className='circle'>OT</p>
+            </div>
+            <div className='text-holder'>
+              <div className='text'>OpenTable Diner</div>
+              <div className='dinedOn'>Dined on January 3, 2018</div>
+            </div>
           </div>
         </div>
       </div>
