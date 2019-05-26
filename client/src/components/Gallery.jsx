@@ -39,11 +39,11 @@ class Gallery extends React.Component{
   }
 
   openModal(e){
-    e.preventDefault();
     this.setState({
       modal: true,
       modalImage: e.target.src
     })
+    e.preventDefault();
   }
 
   closeModal(e){
@@ -54,11 +54,13 @@ class Gallery extends React.Component{
   }
 
   chooseDisplayedImages(){
-    var arr = this.state.imageUrls.slice();
-    for (var i = 0; i < 12; i++){
-      var random = Math.floor(Math.random() * arr.length);
-      this.state.displayedImages.push(arr[random]);
-      arr.splice(arr.indexOf(random), 1);
+    if (!this.state.displayedImages.length){
+      var arr = this.state.imageUrls.slice();
+      for (var i = 0; i < 12; i++){
+        var random = Math.floor(Math.random() * arr.length);
+        this.state.displayedImages.push(arr[random]);
+        arr.splice(arr.indexOf(random), 1);
+      }
     }
   }
 
@@ -83,7 +85,7 @@ class Gallery extends React.Component{
       );
     } else {
       return (
-        <Modal closeModal={this.closeModal} modalImage={this.state.modalImage}/>
+        <Modal displayedImages={this.state.displayedImages} closeModal={this.closeModal} modalImage={this.state.modalImage}/>
       )
     }
   }

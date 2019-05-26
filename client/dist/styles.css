@@ -147,7 +147,7 @@
 .closeBtn {
   font-family: icons;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   font-variant: normal;
   color: #6f737b;
   float: right;
@@ -199,6 +199,34 @@
   display: table-cell;
 }
 
+.leftArrowHolder {
+  float: left;
+}
+
+.leftArrow {
+  color: #91949a;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  font-family: icons;
+}
+
+.rightArrow {
+  color: #91949a;
+  font-size: 25px;
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 50%;
+  font-family: icons;
+}
+
+.outerDiv {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 660px;
+}
 
 
 /* ==================== RESPONSIVE RESIZING of MODAL ================== */
