@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/restaurants/${id}', (req, res) => {
-  var id = req.query.restaurant_id;
-  db.getPhotos(id, (err, photos) => {
+app.get('/restaurants/:id', (req, res) => {
+  console.log('req.params.id = ', req.params.id);
+  db.getPhotos(req.params.id, (err, photos) => {
     if(err){
       console.log('Unable to getRestaurant')
       res.status(500).send();

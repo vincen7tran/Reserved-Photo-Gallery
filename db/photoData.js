@@ -52,5 +52,5 @@ const imagePaths = [
 ];
 
 module.exports = {
-  imagePaths,
+  imagePaths
 }

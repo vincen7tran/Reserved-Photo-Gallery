@@ -19,15 +19,15 @@ class Gallery extends React.Component{
   }
 
   getRequest(){
-    var restID = Math.floor(Math.random()*100+1).toString().padStart(3, '0');
+    var id = Math.floor(Math.random()*100+1).toString().padStart(3, '0');
     $.ajax({
-      url: '/restaurants/${restID}',
+      url: `/restaurants/${id}`,
       type: 'GET',
       success: function(data){
-        console.log('restID: ',restID);
+        console.log('id: ',data);
       },
       error: function(err){
-        console.log('getRequest failed!', err);
+        console.log('GET request failed!', err);
       },
       contentType: 'application/json',
       dataType: 'json'

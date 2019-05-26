@@ -10,7 +10,7 @@ db.once('open', function() {
 
 //============================= SCHEMA =========================
 var restaurantSchema = mongoose.Schema({
-  id: Number,
+  id: String,
   photos: [{
     file_path: String,
     user: String,
@@ -25,13 +25,9 @@ var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 // ============================= QUERY =========================
 var getPhotos = function(id, callback){
-  Restaurant.findOne({id: id}).exec((err, data) => {
-    if(err){
-      console.log('getPhotos failed', err);
-      callback(err);
-    }
-    callback(null, data);
-  });
+  console.log(typeof id)
+  console.log('getPhotos query initiated using id: ', id)
+  Restaurant.findOne({id: id}).exec(callback);
 };
 
 module.exports = {
