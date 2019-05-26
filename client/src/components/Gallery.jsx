@@ -24,7 +24,7 @@ class Gallery extends React.Component{
       url: `/restaurants/${id}`,
       type: 'GET',
       success: function(data){
-        console.log('id: ',data);
+        console.log('Succes! Data looks like: ', data);
       },
       error: function(err){
         console.log('GET request failed!', err);
