@@ -50,7 +50,9 @@ class Modal extends React.Component{
         <div id='simpleModal' className='modal'>
           <span onClick={(e) => this.props.closeModal(e)} className='closeBtn'>&times;</span>
           <div className='outerDiv'>
+            
             <a className='leftArrow' onClick={(e) => this.previousImage(e)}>&lt;</a>
+            
               <div className='modal-content-holder'>
                 <img className='modal-content' src={this.state.currentPhoto} />
                 <div className='modal-footer'>
@@ -66,7 +68,11 @@ class Modal extends React.Component{
                   </svg>
                 </div>
               </div>
-            <a className='rightArrow' onClick={(e) => this.nextImage(e)}>&gt;</a>
+           
+            <div className='rightArrowDiv'>
+              <a className='rightArrow' onClick={(e) => this.nextImage(e)}>&gt;</a>
+            </div>  
+          
           </div>
         </div>
       )
