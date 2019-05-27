@@ -14,13 +14,15 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/restaurants/${id}', (req, res) => {
-  var id = req.query.restaurant_id;
+app.get('/restaurants/:id', (req, res) => {
+  // console.log('req.params.id = ', req.params.id);
+  var id = req.params.id;
   db.getPhotos(id, (err, photos) => {
     if(err){
       console.log('Unable to getRestaurant')
       res.status(500).send();
     }
+    console.log('app.get worked')
     res.status(200).send(photos);
   })
 });
