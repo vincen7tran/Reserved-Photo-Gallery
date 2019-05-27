@@ -15,20 +15,16 @@ class Modal extends React.Component{
   }
 
   nextImage(e){
-    if (this.props.displayedImages[ this.props.displayedImages.indexOf(this.state.currentPhoto) + 1 ]) {
       this.setState({
         currentPhoto: this.props.displayedImages[ this.props.displayedImages.indexOf(this.state.currentPhoto) + 1 ]
       })
-    }
     e.preventDefault()
   }
 
   previousImage(e){
-    if (this.props.displayedImages[ this.props.displayedImages.indexOf(this.state.currentPhoto) - 1 ]) {
       this.setState({
         currentPhoto: this.props.displayedImages[ this.props.displayedImages.indexOf(this.state.currentPhoto) - 1 ]
       })
-    }
     e.preventDefault()
   }
 
