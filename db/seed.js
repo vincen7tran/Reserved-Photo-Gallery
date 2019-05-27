@@ -39,7 +39,7 @@ for (var i = 1; i < 101; i++){
   var restaurant = RestaurantInstance(i);
 
   // push 10-20 photos into restaurant's photos array
-  var numOfPhotos = Math.random() * (20 - 10) + 10;
+  var numOfPhotos = Math.random() * (20 - 12) + 12;
 
   for (var j = 0; j < numOfPhotos; j++){
     var photo = Photo();  
