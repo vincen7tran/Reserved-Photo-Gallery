@@ -340,6 +340,7 @@
     height: 470px;
   }
 }
+
 @media only screen and (max-width: 40em) and (min-width: 25.0625em) {
   .modal-content, .modal-content-holder {
     width: 300px;
@@ -348,7 +349,6 @@
   .outerDiv {
     width: 370px;
     height: 370px;
-
   }
 }
 
@@ -369,11 +369,11 @@
 
 @media screen and (max-width: 767px) {
   #photo-container {
-    height: 144px;
-    display: grid;
     grid-template-columns: repeat(1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px 1fr 71px 2fr 144px);
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
+    height: 144px;
+    display: grid;
   }  
   .size1 {
     height: 71px;

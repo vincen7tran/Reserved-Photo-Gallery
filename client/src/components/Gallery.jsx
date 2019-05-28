@@ -10,8 +10,7 @@ class Gallery extends React.Component{
     this.state = {
       imageUrls: imageUrls.imagePaths,
       displayedImages: [],
-      modal: false,
-      modalImage: ''
+      modal: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -54,8 +53,7 @@ class Gallery extends React.Component{
 
   openModal(e){
     this.setState({
-      modal: true,
-      modalImage: e.target.src
+      modal: true
     })
     e.preventDefault();
   }
