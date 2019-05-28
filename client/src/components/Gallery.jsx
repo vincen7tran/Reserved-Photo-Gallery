@@ -84,7 +84,7 @@ class Gallery extends React.Component{
           <img onClick={(e) => this.openModal(e)} className='size1' id='eleven' src={this.state.displayedImages[10]} />
           <img onClick={(e) => this.openModal(e)} className='size2' id='twelve' src={this.state.displayedImages[11]} />
         </div>
-      );
+      ); 
     } else {
       return (
         <div>
