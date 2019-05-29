@@ -28,6 +28,7 @@ var Photo =  function(){
   photo.user = faker.internet.userName();
   photo.date_posted = faker.date.past();
   photo.flagged = false;
+  imagePaths.imagePaths.splice(imagePaths.imagePaths.indexOf(photo.file_path), 1);
   return photo;
 };
 
@@ -44,7 +45,6 @@ for (var i = 1; i < 101; i++){
   for (var j = 0; j < numOfPhotos; j++){
     var photo = Photo();  
     restaurant.photos.push(photo);
-    // imagePaths.imagePaths.splice(imagePaths.imagePaths.indexOf(photo.file_path), 1);
   }
 
   // save restaurant instance to db
