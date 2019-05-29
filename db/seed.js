@@ -13,22 +13,13 @@ var RestaurantInstance = function(n){
   return obj;
 };
 
-// picks a random filepath for the photo obj (no duplicates)
-// var choosePhotoForRestaurant = function(){
-//   var photo = imagePaths.imagePaths[Math.floor(Math.random() * (imagePaths.imagePaths.length - 0) + 0)];
-//   imagePaths.imagePaths.splice(imagePaths.imagePaths.indexOf(photo), 1);
-//   return photo;
-// }
-
 // creates instance of a photo obj
 var Photo =  function(){
-  // create photo obj
   var photo = {};
   photo.file_path = imagePaths.imagePaths[Math.floor(Math.random() * (imagePaths.imagePaths.length - 0) + 0)];
   photo.user = faker.internet.userName();
   photo.date_posted = faker.date.past();
   photo.flagged = false;
-  imagePaths.imagePaths.splice(imagePaths.imagePaths.indexOf(photo.file_path), 1);
   return photo;
 };
 
@@ -54,5 +45,4 @@ for (var i = 1; i < 101; i++){
     }
   });
   console.log(restaurant);
-} 
-
+}
