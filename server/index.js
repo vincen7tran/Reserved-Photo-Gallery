@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
 
 
 app.get('/restaurants/:id', (req, res) => {
-  // console.log('req.params.id = ', req.params.id);
   var id = req.params.id;
   db.getPhotos(id, (err, photos) => {
     if(err){

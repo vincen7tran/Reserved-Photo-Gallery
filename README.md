@@ -32,12 +32,14 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-
-npm run react-dev
-nodemon ./server/index.js
-mongod --config /usr/local/etc/mongod.conf
-mongo
-node ./db/seed.js
-
-```
+Terminal tab 1:
+  npm install
+  npm run react-dev
+Terminal tab 2:
+  nodemon ./server/index.js (in new tab)
+Terminal tab 3:
+  mongod --config /usr/local/etc/mongod.conf
+  mongo
+Terminal tab 4:
+  node ./db/seed.js
+Open browser at: http://localhost:3002/
