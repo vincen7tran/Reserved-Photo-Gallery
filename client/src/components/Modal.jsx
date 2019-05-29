@@ -15,7 +15,7 @@ const ModalDiv = style.div`
   z-index: 1001;
 `;
 
-const ModalContent = style.div`
+const ModalContent = style.img`
   display: block;
   margin: 0px auto 0px auto;
   width: 590px;  
