@@ -34,6 +34,7 @@ From within the root directory:
 
 Terminal tab 1:
   npm install
+  npm install styled-components --save-dev
   npm run react-dev
 Terminal tab 2:
   nodemon ./server/index.js (in new tab)
