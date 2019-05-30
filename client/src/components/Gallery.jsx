@@ -1,9 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 import Modal from './Modal.jsx';
-import style from 'styled-components';
+// import styled from 'styled-components';
 
-const PhotoContainer = style.div`
+const PhotoContainer = styled.div`
   overflow: hidden;
   margin-left: 0;
   margin-right: 0;
@@ -16,7 +16,7 @@ const PhotoContainer = style.div`
   grid-template-areas: "one three three four six six seven nine nine ten twelve twelve" "two three three five six six eight nine nine eleven twelve twelve";
 `;
 
-const One = style.img`
+const One = styled.img`
   grid-area: one; 
   border: 2px black solid;
   height: 142px;
@@ -24,7 +24,7 @@ const One = style.img`
   object-fit: cover;
 `;
 
-const Two = style.img`
+const Two = styled.img`
   grid-area: two; 
   border: 2px black solid;
   height: 142px;
@@ -32,7 +32,7 @@ const Two = style.img`
   object-fit: cover;
 `;
 
-const Three = style.img`
+const Three = styled.img`
   grid-area: three; 
   border: 2px black solid;
   height: 288px;
@@ -40,7 +40,7 @@ const Three = style.img`
   object-fit: cover;
 `;
 
-const Four = style.img`
+const Four = styled.img`
 grid-area: four; 
 border: 2px black solid;
 height: 142px;
@@ -48,7 +48,7 @@ width: 142px;
 object-fit: cover;
 `;
 
-const Five = style.img`
+const Five = styled.img`
   object-fit: cover; 
   grid-area: five; 
   border: 2px black solid;
@@ -56,7 +56,7 @@ const Five = style.img`
   width: 142px;
 `;
 
-const Six = style.img`
+const Six = styled.img`
   object-fit: cover; 
   grid-area: six; 
   border: 2px black solid;
@@ -64,7 +64,7 @@ const Six = style.img`
   width: 288px;
 `;
 
-const Seven = style.img`
+const Seven = styled.img`
   object-fit: cover; 
   grid-area: seven; 
   border: 2px black solid;
@@ -72,7 +72,7 @@ const Seven = style.img`
   width: 142px;
 `;
 
-const Eight = style.img`
+const Eight = styled.img`
   object-fit: cover; 
   grid-area: eight; 
   border: 2px black solid;
@@ -80,7 +80,7 @@ const Eight = style.img`
   width: 142px;
 `;
 
-const Nine = style.img`
+const Nine = styled.img`
   object-fit: cover; 
   grid-area: nine; 
   height: 288px;
@@ -88,7 +88,7 @@ const Nine = style.img`
   border: 2px black solid;
 `;
 
-const Ten = style.img`
+const Ten = styled.img`
   object-fit: cover; 
   grid-area: ten; 
   border: 2px black solid;
@@ -96,7 +96,7 @@ const Ten = style.img`
   width: 142px;
 `;
 
-const Eleven = style.img`
+const Eleven = styled.img`
   object-fit: cover; 
   grid-area: eleven; 
   border: 2px black solid;
@@ -104,7 +104,7 @@ const Eleven = style.img`
   width: 142px;
 `;
 
-const Twelve = style.img`
+const Twelve = styled.img`
   object-fit: cover; 
   grid-area: twelve; 
   height: 288px;

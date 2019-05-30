@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3002;
 const db = require('../db/index.js');
+var cors = require('cors');
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static(__dirname + '/../client/dist'));

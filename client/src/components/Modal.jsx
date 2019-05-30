@@ -1,9 +1,9 @@
 import React from 'react';
 import Flag from './Flag.jsx';
-import style from 'styled-components';
+// import styled from 'styled-components';
 
 
-const ModalDiv = style.div`
+const ModalDiv = styled.div`
   position: fixed;
   z-index: 1;
   left: 0;
@@ -15,7 +15,7 @@ const ModalDiv = style.div`
   z-index: 1001;
 `;
 
-const ModalContent = style.img`
+const ModalContent = styled.img`
   display: block;
   margin: 0px auto 0px auto;
   width: 590px;  
@@ -23,18 +23,18 @@ const ModalContent = style.img`
   object-fit: cover;
 `;
 
-const ModalContentHolder = style.div`
+const ModalContentHolder = styled.div`
   display: block;
   margin: 30px auto 0px auto;
   width: 590px;  
   height: 590px;
 `;
 
-const ModalFooter = style.div`
+const ModalFooter = styled.div`
   margin: 8px 0px;
 `;
 
-const CloseBtn = style.span`
+const CloseBtn = styled.span`
   font-family: icons;
   display: inline;
   font-style: normal;
@@ -46,17 +46,17 @@ const CloseBtn = style.span`
   font-size: 50px;
 `;
 
-const CircleHolder = style.div`
+const CircleHolder = styled.div`
   margin: 8px 6px 0px 0px;
   float: left;
 `;
 
-const TextHolder = style.div`
+const TextHolder = styled.div`
   float: left;
   padding: 8px 0px 0px 0px;
 `;
 
-const Text = style.div`
+const Text = styled.div`
   display: block;
   padding: 4px 0px 0px 0px;
   margin: 8px 0px 0px 0px;
@@ -66,7 +66,7 @@ const Text = style.div`
   font-weight: 500;
 `;
 
-const DinedOn = style.div`
+const DinedOn = styled.div`
   display: block;
   padding: 4px 0px 0px 0px;
   color: white;
@@ -75,7 +75,7 @@ const DinedOn = style.div`
   font-weight: 100;
 `;
 
-const Circle = style.p`
+const Circle = styled.p`
   margin: auto;
   width: 50px;
   height: 50px; 
@@ -90,7 +90,7 @@ const Circle = style.p`
   display: table-cell;
 `;
 
-const LeftArrow = style.a`
+const LeftArrow = styled.a`
   color: #91949a;
   font-size: 25px;
   position: relative;
@@ -98,7 +98,7 @@ const LeftArrow = style.a`
   font-family: icons;
 `;
 
-const RightArrow = style.a`
+const RightArrow = styled.a`
   color: #91949a;
   font-size: 25px;
   position: relative;
@@ -108,19 +108,19 @@ const RightArrow = style.a`
   font-family: icons;
 `;
 
-const RightArrowDiv = style.div`
+const RightArrowDiv = styled.div`
   margin: 30px 0px 30px 0px;
   width: 20px;
 `;
 
-const FlagIcon = style.svg`
+const FlagIcon = styled.svg`
   margin: 8px;
   color: white;
   font-family: BrandonText;
   float: right;
 `;
 
-const OuterDiv = style.div`
+const OuterDiv = styled.div`
   display: flex;
   justify-content: space-between;
   margin: auto;

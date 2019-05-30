@@ -1,8 +1,8 @@
 import React from 'react';
-import style from 'styled-components';
+// import styled from 'styled-components';
 
 
-const Report = style.div`
+const Report = styled.div`
   position: absolute;
   width: 25rem;
   right: 0;
@@ -18,7 +18,7 @@ const Report = style.div`
   padding-bottom: 16px;
 `;
 
-const ReportHeader = style.h4`
+const ReportHeader = styled.h4`
   font-size: 1.25rem;
   padding-left: 16px;
   display: block;
@@ -26,7 +26,7 @@ const ReportHeader = style.h4`
   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 `;
 
-const Unrelated = style.button`
+const Unrelated = styled.button`
   display: block;
   font-size: 16px;
   font-weight: 400;
@@ -39,7 +39,7 @@ const Unrelated = style.button`
   background-color: rgb(97, 189, 219);
 `;
 
-const Inappropriate = style.button`
+const Inappropriate = styled.button`
   display: block;
   font-size: 16px;
   font-weight: 400;
@@ -52,7 +52,7 @@ const Inappropriate = style.button`
   background-color: rgb(97, 189, 219);
 `;
 
-const DontLike = style.button`
+const DontLike = styled.button`
   display: block;
   font-size: 16px;
   font-weight: 400;
@@ -65,7 +65,7 @@ const DontLike = style.button`
   background-color: rgb(97, 189, 219);
 `;
 
-const Cancel = style.button`
+const Cancel = styled.button`
   display: block;
   font-size: 16px;
   font-weight: 400;

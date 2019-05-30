@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import Gallery from './components/Gallery.jsx';
 
 
-ReactDOM.render(<Gallery />, document.getElementById('root'));
+ReactDOM.render(<Gallery />, document.getElementById('photos'));
