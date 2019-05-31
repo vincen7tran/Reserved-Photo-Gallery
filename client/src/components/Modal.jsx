@@ -2,7 +2,6 @@ import React from 'react';
 import Flag from './Flag.jsx';
 // import styled from 'styled-components';
 
-
 const ModalDiv = styled.div`
   position: fixed;
   z-index: 1;
@@ -128,7 +127,6 @@ const OuterDiv = styled.div`
   height: 660px;
 `;
 
-// props = closeModal, modalImage, displayedImages
 class Modal extends React.Component{
   constructor(props){
     super(props);
@@ -172,7 +170,6 @@ class Modal extends React.Component{
   }
 
   formatDate(date) {
-    var x = date.slice()
     var monthObj = {
       '01': 'Jan', 
       '02': 'Feb', 
@@ -254,6 +251,5 @@ class Modal extends React.Component{
     }
   }
 }
-
 
 export default Modal;

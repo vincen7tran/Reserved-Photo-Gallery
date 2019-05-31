@@ -1,7 +1,6 @@
 import React from 'react';
 // import styled from 'styled-components';
 
-
 const Report = styled.div`
   position: absolute;
   width: 25rem;
@@ -97,6 +96,5 @@ class Flag extends React.Component{
     )
   }
 }
-
 
 export default Flag;

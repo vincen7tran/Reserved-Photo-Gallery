@@ -4,8 +4,7 @@ var db = require('./index.js');
 mongoose.connect('mongodb://localhost/restaurants', { useNewUrlParser: true });
 const imagePaths = require('./photoData.js');
 
-
-// creates a restaurant document / instance 
+// create restaurant instance 
 var RestaurantInstance = function(n){
   var obj = {};
   obj.restaurant_id = n.toString().padStart(3, '0');
@@ -13,7 +12,7 @@ var RestaurantInstance = function(n){
   return obj;
 };
 
-// creates instance of a photo obj
+// create photo instance
 var Photo =  function(){
   var photo = {};
   photo.file_path = imagePaths.imagePaths[Math.floor(Math.random() * (imagePaths.imagePaths.length - 0) + 0)];
@@ -23,22 +22,14 @@ var Photo =  function(){
   return photo;
 };
 
-// ================= Save restaurants to db ================================
-
+// Save restaurants with photos to db
 for (var i = 1; i < 101; i++){
-  
-  // create restaurant instance with id = i
   var restaurant = RestaurantInstance(i);
-
-  // push 10-20 photos into restaurant's photos array
   var numOfPhotos = Math.random() * (20 - 12) + 12;
-
   for (var j = 0; j < numOfPhotos; j++){
     var photo = Photo();  
     restaurant.photos.push(photo);
   }
-
-  // save restaurant instance to db
   db.Restaurant.create(restaurant, function(err){
     if (err) {
       console.log('Unable to save restaurant instance to database');

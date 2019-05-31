@@ -117,18 +117,17 @@ class Gallery extends React.Component{
     super(props);
     this.state = {
       modal: false,
-      displayedImages: undefined
+      displayedImages: null
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    // this.chooseDisplayedImages = this.chooseDisplayedImages.bind(this);
   }
 
   getRequest(){
     var that = this;
     var id = Math.floor(Math.random()*100+1).toString().padStart(3, '0');
     $.ajax({
-      url: `/restaurants/${id}`,
+      url: `/API/restaurant/photo/${id}`,
       type: 'GET',
       success: function(data){
         console.log('Data: ', data[0].photos);
@@ -169,8 +168,7 @@ class Gallery extends React.Component{
 
 
   render(){
-    // this.chooseDisplayedImages()
-    if (this.state && this.state.displayedImages && this.state.modal === false) {
+    if (this.state && this.state.displayedImages !== null && this.state.modal === false) {
       return (
         <PhotoContainer>
           <One onClick={(e) => this.openModal(e)} className="size1" id='one' src={this.state.displayedImages[0].file_path}/>
@@ -187,7 +185,7 @@ class Gallery extends React.Component{
           <Twelve onClick={(e) => this.openModal(e)} className='size2' id='twelve' src={this.state.displayedImages[11].file_path} />
         </PhotoContainer>
       ); 
-    } else if (this.state && this.state.displayedImages && (this.state.modal === true)) {
+    } else if (this.state && this.state.displayedImages !== null && (this.state.modal === true)) {
       return (
         <div>
           <Modal displayedImages={this.state.displayedImages} closeModal={this.closeModal} modalImage={this.state.modalImage}/>
@@ -214,6 +212,5 @@ class Gallery extends React.Component{
     }
   }
 }
-
 
 export default Gallery;

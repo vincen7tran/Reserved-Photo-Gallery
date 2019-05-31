@@ -111,7 +111,6 @@
   border: 2px black solid;
 }
 
-
 /* ============================= MODAL =============================== */
 
 /* ModalDiv */
@@ -203,10 +202,6 @@
   display: table-cell;
 }
 
-/* .leftArrowHolder {
-  float: left;
-} */
-
 .leftArrow {
   color: #91949a;
   font-size: 25px;
@@ -229,11 +224,6 @@
   margin: 30px 0px 30px 0px;
   width: 20px;
 }
-
-/* .leftArrowDiv {
-  margin: 30px 0px 30px 0px;
-  width: 20px;
-} */
 
 .flag-icon {
   margin: 8px;
@@ -364,7 +354,6 @@
 
   }
 }
-
 
 /* ==================== RESPONSIVE RESIZING of GALLERY ================== */
 

@@ -44,3 +44,8 @@ Terminal tab 3:
 Terminal tab 4:
   node ./db/seed.js
 Open browser at: http://localhost:3002/
+
+
+Useful terminal commands for db:
+  db.restaurants.find({})
+  db.dropDatabase()

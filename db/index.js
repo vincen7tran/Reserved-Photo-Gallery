@@ -8,7 +8,7 @@ db.once('open', function() {
   console.log('Database connected!');
 });
 
-//============================= SCHEMA =========================
+// schema
 var restaurantSchema = mongoose.Schema({
   restaurant_id: String,
   photos: [{
@@ -19,11 +19,10 @@ var restaurantSchema = mongoose.Schema({
   }]
 });
 
-// ============================== MODEL ====================================
+// model 
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-
-// ============================= QUERY =========================
+// query
 var getPhotos = function(id, callback){
   console.log('Query initiated using id: ', id)
   Restaurant.find({ restaurant_id: id }, (err, photos) => {
@@ -36,19 +35,7 @@ var getPhotos = function(id, callback){
   });
 };
 
-
 module.exports = {
   getPhotos,
   Restaurant
 };
-
-/*
-Terminal commands to remember:
-
-mongo
-show dbs
-use <db>
-db.restaurants.find({})
-db.dropDatabase()
-re-run seed.js
-*/
