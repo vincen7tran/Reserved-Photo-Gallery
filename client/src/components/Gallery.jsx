@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import Modal from './Modal.jsx';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 const PhotoContainer = styled.div`
   overflow: hidden;
@@ -133,6 +133,7 @@ class Gallery extends React.Component{
       url: `/API/restaurant/photo/${id}`,
       type: 'GET',
       success: (data) => {
+        console.log(data);
         console.log('Data: ', data[0].photos);
         this.setState({
           displayedImages: data[0].photos

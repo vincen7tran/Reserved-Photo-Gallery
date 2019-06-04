@@ -1,6 +1,6 @@
 import React from 'react';
 import Flag from './Flag.jsx';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 const ModalDiv = styled.div`
   position: fixed;

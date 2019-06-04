@@ -23,15 +23,15 @@ var restaurantSchema = mongoose.Schema({
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
 // query
-var getPhotos = function(id, callback){
-  console.log('Query initiated using id: ', id)
+var getPhotos = function(id, callback) {
+  console.log('Query initiated using id: ', id);
   Restaurant.find({ restaurant_id: id }, (err, photos) => {
     if (err) {
       callback(err);
-      console.log('error with getPhotos query')
+      console.log('error with getPhotos query');
     }
     callback(null, photos);
-    console.log('getPhotos worked!')
+    console.log('getPhotos worked!');
   });
 };
 
