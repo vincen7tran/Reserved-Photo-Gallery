@@ -1,0 +1,10 @@
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-1.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-2.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-3.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-4.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-5.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-6.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-7.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-8.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-9.csv' DELIMITER ',' CSV HEADER;
+COPY restaurant_photos FROM '/Users/vtran/Desktop/photos-module/db/postgres-join-10.csv' DELIMITER ',' CSV HEADER;

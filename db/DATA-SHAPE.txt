@@ -1,0 +1,43 @@
+MongoDB Schema
+var restaurantSchema = mongoose.Schema({
+  restaurant_id: String,
+  photos: [{
+    file_path: String,
+    user: String,
+    date_posted: Date,
+    flagged: Boolean 
+  }]
+});
+
+Cassandra Schema
+Create TYPE photo(
+  id INT,
+  path TEXT,
+  user TEXT,
+  date TIMESTAMP,
+  flagged BOOLEAN,
+)
+
+Create table resturants(
+  id INT PRIMARY KEY,
+  photos set<frozen <photo>>
+)
+
+Postgres Schema
+CREATE TABLE Restaurant(
+  id INT PRIMARY KEY,
+)
+
+CREATE TABLE Photo(
+  id INT PRIMARY KEY,
+  path TEXT,
+  user TEXT,
+  date DATE,
+  flagged BOOLEAN
+)
+
+CREATE TABLE Restaurant_Photos(
+  id INT PRIMARY KEY,
+  restaurant_id INT REFERENCES Restaurant(id)
+  photo_id INT REFERENCES Photo(id)
+)
