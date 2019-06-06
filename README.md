@@ -17,7 +17,14 @@
 
 ## Usage
 
-> Some usage instructions
+> API CRUD Information
+
+| API Endpoints  | Request Type | Input | Output | Description  |
+| ------------- | ------------- | ------------- | ------------- | ------------- | 
+| /API/restaurant/photo/:id | GET  | Restaurant ID  | Restaurant Document with Array of Photos | Gets photos for corresponding restaurant  |
+| /API/restaurant/photo/ | POST  | Restaurant Document   | STATUS CODE 201  | Create a Restaurant Document  | 
+| /API/restaurant/photo/:id | PATCH  | Restaurant ID  | STATUS CODE 200  | Update a Restaurant Document  |
+| /API/restaurant/photo/:id | DELETE  | Restaurant ID  | STATUS CODE 200  | Delete a Restaurant Document  |
 
 ## Requirements
 
