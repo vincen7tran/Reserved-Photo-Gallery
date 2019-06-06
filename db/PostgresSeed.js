@@ -57,7 +57,7 @@ const joinGen = async () => {
     flag: 'a'
   });
   writer.write('id, restaurantId, photoId\n');
-  for (let i = 1; i <= 1000000; i++) {
+  for (let i = 1; i <= 10000000; i++) {
     for (let j = 0; j < Math.ceil(Math.random() * 10) + 15; j++) {
       const photoId = Math.ceil(Math.random() * 1028);
       const result = writer.write(
