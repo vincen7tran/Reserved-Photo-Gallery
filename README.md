@@ -26,7 +26,7 @@
 | /API/restaurant/photo/:id | PATCH  | Restaurant ID  | STATUS CODE 200  | Update a Restaurant Document  |
 | /API/restaurant/photo/:id | DELETE  | Restaurant ID  | STATUS CODE 200  | Delete a Restaurant Document  |
 
-API Response BodyJSON Shape
+API Response Body JSON Shape
 ```javascript
 {
   "photos":[
