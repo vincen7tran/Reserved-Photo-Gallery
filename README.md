@@ -26,7 +26,8 @@
 | /API/restaurant/photo/:id | PATCH  | Restaurant ID  | STATUS CODE 200  | Update a Restaurant Document  |
 | /API/restaurant/photo/:id | DELETE  | Restaurant ID  | STATUS CODE 200  | Delete a Restaurant Document  |
 
-API JSON Shape
+API Response BodyJSON Shape
+```javascript
 {
   "photos":[
     {
@@ -45,7 +46,7 @@ API JSON Shape
     }
   ]
 }
-
+```
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
