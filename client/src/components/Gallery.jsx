@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import axios from 'axios';
 import moment from 'moment';
 import Modal from './Modal.jsx';
@@ -131,21 +130,9 @@ class Gallery extends React.Component{
     const path = window.location.pathname;
     const id = path.slice(1);
 
-    $.ajax({
-      url: `/API/restaurant/photo/${id}`,
-      type: 'GET',
-      success: (data) => {
-        console.log(data);
-        this.setState({
-          displayedImages: data,
-        });
-      },
-      error: function(err){
-        console.log('GET request failed!', err);
-      },
-      contentType: 'application/json',
-      dataType: 'json'
-    });
+    axios.get(`/API/restaurant/photo/${id}`)
+      .then(({  data }) => this.setState({ displayedImages: data }))
+      .catch(e => console.log(e));
   }
 
   componentDidMount(){
