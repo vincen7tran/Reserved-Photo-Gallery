@@ -1,41 +1,46 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/restaurants');
+const { Pool } = require('pg');
 
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('Database connected!');
+const pool = new Pool({
+  user: 'vtran',
+  host: 'localhost',
+  database: 'ot',
+  password: '',
+  port: 5432
 });
 
-// schema
-var restaurantSchema = mongoose.Schema({
-  restaurant_id: String,
-  photos: [{
-    file_path: String,
-    user: String,
-    date_posted: Date,
-    flagged: Boolean 
-  }]
-});
+getPhotos = (id, callback) => {
+  const q = 'SELECT * FROM photos where r_id = ' + id;
 
-// model 
-var Restaurant = mongoose.model('Restaurant', restaurantSchema);
+  pool.query(q, (err, res) => {
+    if (err) return callback(err);
+    callback(null, res);
+  });
+};
 
-// query
-var getPhotos = function(id, callback) {
-  console.log('Query initiated using id: ', id);
-  Restaurant.find({ restaurant_id: id }, (err, photos) => {
-    if (err) {
-      callback(err);
-      console.log('error with getPhotos query');
-    }
-    callback(null, photos);
-    console.log('getPhotos worked!');
+flagPhoto = (id) => {
+  const q = 'UPDATE photos SET FLAG = TRUE WHERE id = ' + id;
+
+  return new Promise((resolve, reject) => {
+    pool.query(q, (err, res) => {
+      if (err) return reject(err);
+      resolve(res);
+    });
+  });
+};
+
+addFlag = (id, reason, date) => {
+  const q = `INSERT INTO flags (reason,date,p_id) VALUES ('${reason}','${date}',${id})`;
+
+  return new Promise((resolve, reject) => {
+    pool.query(q, (err, res) => {
+      if (err) return reject(err);
+      resolve(res);
+    });
   });
 };
 
 module.exports = {
   getPhotos,
-  Restaurant
+  flagPhoto,
+  addFlag,
 };

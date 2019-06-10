@@ -88,9 +88,9 @@ class Flag extends React.Component{
     return (
       <Report className='report'>
         <ReportHeader className='report-header'>Report a photo problem</ReportHeader>
-        <Unrelated onClick={(e) => this.props.report(e)} className='unrelated' type='button'>Unrelated to restaurant</Unrelated>
-        <Inappropriate onClick={(e) => this.props.report(e)} className='inappropriate' type='button'>Inappropriate content</Inappropriate>
-        <DontLike onClick={(e) => this.props.report(e)} className='dont-like' type='button'>I don't like this photo</DontLike>
+        <Unrelated onClick={(e) => this.props.postReport(e)} className='unrelated' type='button'>Unrelated to restaurant</Unrelated>
+        <Inappropriate onClick={(e) => this.props.postReport(e)} className='inappropriate' type='button'>Inappropriate content</Inappropriate>
+        <DontLike onClick={(e) => this.props.postReport(e)} className='dont-like' type='button'>I don't like this photo</DontLike>
         <Cancel onClick={(e) => this.props.report(e)} className='cancel' type='button'>Cancel</Cancel>
       </Report>
     )

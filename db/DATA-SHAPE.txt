@@ -10,34 +10,91 @@ var restaurantSchema = mongoose.Schema({
 });
 
 Cassandra Schema
-Create TYPE photo(
-  id INT,
-  path TEXT,
-  user TEXT,
-  date TIMESTAMP,
-  flagged BOOLEAN,
+DESCRIBE keyspaces
+CREATE KEYSPACE ot WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1}
+USE ot
+tracing on enables timing
+
+copy ot.restaurants (id,name,photos) from '/Users/vtran/Desktop/photos-module/db/cassandra-restaurant.csv'
+WITH HEADER=TRUE AND CHUNKSIZE=40000 AND INGESTRATE=10000
+AND MINBATCHSIZE=1 AND MAXBATCHSIZE=20 AND PAGESIZE=35 AND NUMPROCESSES=16;
+
+copy ot.restaurants (id,name,photos) from '/Users/vtran/Desktop/photos-module/db/cassandra-restaurant-test.csv'
+WITH HEADER=TRUE AND CHUNKSIZE=7500 AND INGESTRATE=100000
+AND MINBATCHSIZE=1 AND MAXBATCHSIZE=1 AND PAGESIZE=15 AND NUMPROCESSES=16;
+
+copy ot.photos (id,username,date,flag) from '/Users/vtran/Desktop/photos-module/db/cassandra-photo.csv'
+WITH HEADER=TRUE AND CHUNKSIZE=40000 AND INGESTRATE=100000
+AND MINBATCHSIZE=1 AND MAXBATCHSIZE=20 AND PAGESIZE=35 AND NUMPROCESSES=16;
+
+Create table photos(
+  id INT PRIMARY KEY,
+  username TEXT,
+  date TEXT,
+  flag BOOLEAN
 )
 
-Create table resturants(
+Create table ot.restaurants(
   id INT PRIMARY KEY,
-  photos set<frozen <photo>>
+  name TEXT, 
+  photos map<INT,TEXT>
 )
 
 Postgres Schema
-CREATE TABLE Restaurant(
+\l show databases
+\c connect databases
+\dt show tables
+\d describe table
+\timing toggles timing
+
+CREATE TABLE restaurants(
   id INT PRIMARY KEY,
+  name TEXT
 )
 
-CREATE TABLE Photo(
+CREATE TABLE photos(
   id INT PRIMARY KEY,
-  path TEXT,
-  user TEXT,
-  date DATE,
-  flagged BOOLEAN
+  r_id INT
+  url TEXT,
+  username TEXT,
+  date TEXT,
+  flag BOOLEAN,
+  FOREIGN KEY (r_id) REFERENCES restaurants(id)
 )
 
-CREATE TABLE Restaurant_Photos(
-  id INT PRIMARY KEY,
-  restaurant_id INT REFERENCES Restaurant(id)
-  photo_id INT REFERENCES Photo(id)
+CREATE TABLE flags(
+  id SERIAL PRIMARY KEY,
+  reason text,
+  date text,
+  p_id INT,
+  FOREIGN KEY (p_id) REFERENCES photos(id)
 )
+
+Change INT to SERIAL for AUTO INCREMENT
+SELECT MAX(id)+1 FROM mytable
+CREATE SEQUENCE test_id_seq MINVALUE [from above]
+ALTER TABLE test ALTER id SET DEFAULT nextval('test_id_seq')
+ALTER SEQUENCE test_id_seq OWNED BY test.id
+
+If Sequence already exists but is off...
+ALTER SEQUENCE START and RESTART to match max   
+
+Cassandra UDT Schema
+
+create type photo(
+  id INT,
+  url TEXT,
+  username TEXT,
+  date TEXT,
+  flag BOOLEAN
+)
+
+Create table restaurants(
+  id INT PRIMARY KEY,
+  name TEXT, 
+  photos set<FROZEN <photo>>
+)
+
+copy ot2.restaurants (id,photos) from '/Users/vtran/Desktop/photos-module/db/cassandra-udt.csv'
+WITH HEADER=TRUE AND CHUNKSIZE=40000 AND INGESTRATE=100000
+AND MINBATCHSIZE=1 AND MAXBATCHSIZE=20 AND PAGESIZE=35 AND NUMPROCESSES=16;

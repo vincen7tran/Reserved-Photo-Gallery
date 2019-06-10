@@ -1,5 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
+import axios from 'axios';
+import moment from 'moment';
 import Modal from './Modal.jsx';
 import styled from 'styled-components';
 
@@ -122,22 +124,21 @@ class Gallery extends React.Component{
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.postFlag =this.postFlag.bind(this);
   }
 
   getPhotos(){
-    
-    // window.location.pathname 
-    var id = Math.floor(Math.random()*100+1).toString().padStart(3, '0');
+    const path = window.location.pathname;
+    const id = path.slice(1);
 
     $.ajax({
       url: `/API/restaurant/photo/${id}`,
       type: 'GET',
       success: (data) => {
         console.log(data);
-        console.log('Data: ', data[0].photos);
         this.setState({
-          displayedImages: data[0].photos
-        })
+          displayedImages: data,
+        });
       },
       error: function(err){
         console.log('GET request failed!', err);
@@ -151,10 +152,23 @@ class Gallery extends React.Component{
     this.getPhotos()
   }
 
+  postFlag(reason, photo) {
+    const { id } = photo;
+    const date = moment(new Date()).format('YYYY-MM-DD-HH-MM');
+
+    axios.post('/flag', {
+      params: {
+        id,
+        reason,
+        date,
+      }
+    });
+  }
+
   openModal(e){
     e.preventDefault();
     for (var i = 0; i < this.state.displayedImages.length; i++) {
-      if (e.target.src === this.state.displayedImages[i].file_path) {
+      if (e.target.src === this.state.displayedImages[i].url) {
         this.setState({
           modal: true,
           modalImage: this.state.displayedImages[i]
@@ -175,37 +189,37 @@ class Gallery extends React.Component{
     if (this.state.displayedImages.length && !this.state.modal) {
       return (
         <PhotoContainer>
-          <One onClick={(e) => this.openModal(e)} className="size1" id='one' src={this.state.displayedImages[0].file_path}/>
-          <Two onClick={(e) => this.openModal(e)} className='size1' id='two' src={this.state.displayedImages[1].file_path} />
-          <Three onClick={(e) => this.openModal(e)} className='size2' id='three' src={this.state.displayedImages[2].file_path} />
-          <Four onClick={(e) => this.openModal(e)} className='size1' id='four' src={this.state.displayedImages[3].file_path} />
-          <Five onClick={(e) => this.openModal(e)} className='size1' id='five' src={this.state.displayedImages[4].file_path} />
-          <Six onClick={(e) => this.openModal(e)} className='size2' id='six' src={this.state.displayedImages[5].file_path} />
-          <Seven onClick={(e) => this.openModal(e)} className='size1' id='seven' src={this.state.displayedImages[6].file_path} />
-          <Eight onClick={(e) => this.openModal(e)} className='size1' id='eight' src={this.state.displayedImages[7].file_path} />
-          <Nine onClick={(e) => this.openModal(e)} className='size2' id='nine' src={this.state.displayedImages[8].file_path} />
-          <Ten onClick={(e) => this.openModal(e)} className='size1' id='ten' src={this.state.displayedImages[9].file_path} />
-          <Eleven onClick={(e) => this.openModal(e)} className='size1' id='eleven' src={this.state.displayedImages[10].file_path} />
-          <Twelve onClick={(e) => this.openModal(e)} className='size2' id='twelve' src={this.state.displayedImages[11].file_path} />
+          <One onClick={(e) => this.openModal(e)} className="size1" id='one' src={this.state.displayedImages[0].url}/>
+          <Two onClick={(e) => this.openModal(e)} className='size1' id='two' src={this.state.displayedImages[1].url} />
+          <Three onClick={(e) => this.openModal(e)} className='size2' id='three' src={this.state.displayedImages[2].url} />
+          <Four onClick={(e) => this.openModal(e)} className='size1' id='four' src={this.state.displayedImages[3].url} />
+          <Five onClick={(e) => this.openModal(e)} className='size1' id='five' src={this.state.displayedImages[4].url} />
+          <Six onClick={(e) => this.openModal(e)} className='size2' id='six' src={this.state.displayedImages[5].url} />
+          <Seven onClick={(e) => this.openModal(e)} className='size1' id='seven' src={this.state.displayedImages[6].url} />
+          <Eight onClick={(e) => this.openModal(e)} className='size1' id='eight' src={this.state.displayedImages[7].url} />
+          <Nine onClick={(e) => this.openModal(e)} className='size2' id='nine' src={this.state.displayedImages[8].url} />
+          <Ten onClick={(e) => this.openModal(e)} className='size1' id='ten' src={this.state.displayedImages[9].url} />
+          <Eleven onClick={(e) => this.openModal(e)} className='size1' id='eleven' src={this.state.displayedImages[10].url} />
+          <Twelve onClick={(e) => this.openModal(e)} className='size2' id='twelve' src={this.state.displayedImages[11].url} />
         </PhotoContainer>
       ); 
     } else if (this.state.displayedImages.length && this.state.modal) {
       return (
         <div>
-          <Modal displayedImages={this.state.displayedImages} closeModal={this.closeModal} modalImage={this.state.modalImage}/>
+          <Modal postFlag={this.postFlag} displayedImages={this.state.displayedImages} closeModal={this.closeModal} modalImage={this.state.modalImage}/>
           <PhotoContainer>
-            <One onClick={(e) => this.openModal(e)} className="size1" id='one' src={this.state.displayedImages[0].file_path}/>
-            <Two onClick={(e) => this.openModal(e)} className='size1' id='two' src={this.state.displayedImages[1].file_path} />
-            <Three onClick={(e) => this.openModal(e)} className='size2' id='three' src={this.state.displayedImages[2].file_path} />
-            <Four onClick={(e) => this.openModal(e)} className='size1' id='four' src={this.state.displayedImages[3].file_path} />
-            <Five onClick={(e) => this.openModal(e)} className='size1' id='five' src={this.state.displayedImages[4].file_path} />
-            <Six onClick={(e) => this.openModal(e)} className='size2' id='six' src={this.state.displayedImages[5].file_path} />
-            <Seven onClick={(e) => this.openModal(e)} className='size1' id='seven' src={this.state.displayedImages[6].file_path} />
-            <Eight onClick={(e) => this.openModal(e)} className='size1' id='eight' src={this.state.displayedImages[7].file_path} />
-            <Nine onClick={(e) => this.openModal(e)} className='size2' id='nine' src={this.state.displayedImages[8].file_path} />
-            <Ten onClick={(e) => this.openModal(e)} className='size1' id='ten' src={this.state.displayedImages[9].file_path} />
-            <Eleven onClick={(e) => this.openModal(e)} className='size1' id='eleven' src={this.state.displayedImages[10].file_path} />
-            <Twelve onClick={(e) => this.openModal(e)} className='size2' id='twelve' src={this.state.displayedImages[11].file_path} />
+            <One onClick={(e) => this.openModal(e)} className="size1" id='one' src={this.state.displayedImages[0].url}/>
+            <Two onClick={(e) => this.openModal(e)} className='size1' id='two' src={this.state.displayedImages[1].url} />
+            <Three onClick={(e) => this.openModal(e)} className='size2' id='three' src={this.state.displayedImages[2].url} />
+            <Four onClick={(e) => this.openModal(e)} className='size1' id='four' src={this.state.displayedImages[3].url} />
+            <Five onClick={(e) => this.openModal(e)} className='size1' id='five' src={this.state.displayedImages[4].url} />
+            <Six onClick={(e) => this.openModal(e)} className='size2' id='six' src={this.state.displayedImages[5].url} />
+            <Seven onClick={(e) => this.openModal(e)} className='size1' id='seven' src={this.state.displayedImages[6].url} />
+            <Eight onClick={(e) => this.openModal(e)} className='size1' id='eight' src={this.state.displayedImages[7].url} />
+            <Nine onClick={(e) => this.openModal(e)} className='size2' id='nine' src={this.state.displayedImages[8].url} />
+            <Ten onClick={(e) => this.openModal(e)} className='size1' id='ten' src={this.state.displayedImages[9].url} />
+            <Eleven onClick={(e) => this.openModal(e)} className='size1' id='eleven' src={this.state.displayedImages[10].url} />
+            <Twelve onClick={(e) => this.openModal(e)} className='size2' id='twelve' src={this.state.displayedImages[11].url} />
           </PhotoContainer>
         </div>
       )

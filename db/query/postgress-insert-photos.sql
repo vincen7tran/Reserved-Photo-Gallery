@@ -1,0 +1,5 @@
+INSERT INTO photos (r_id,url,username,date,flag) VALUES (10000,'https://sdc-vinh-photo-carousel-images.s3-us-west-1.amazonaws.com/images/img-3.webp','vinh2','2019-05-01-12-31',true);
+INSERT INTO photos (r_id,url,username,date,flag) VALUES (500000,'https://sdc-vinh-photo-carousel-images.s3-us-west-1.amazonaws.com/images/img-30.webp','vinh2','2019-05-01-12-31',true);
+INSERT INTO photos (r_id,url,username,date,flag) VALUES (1000000,'https://sdc-vinh-photo-carousel-images.s3-us-west-1.amazonaws.com/images/img-300.webp','vinh2','2019-05-01-12-31',true);
+INSERT INTO photos (r_id,url,username,date,flag) VALUES (5000000,'https://sdc-vinh-photo-carousel-images.s3-us-west-1.amazonaws.com/images/img-334.webp','vinh2','2019-05-01-12-31',true);
+INSERT INTO photos (r_id,url,username,date,flag) VALUES (10000000,'https://sdc-vinh-photo-carousel-images.s3-us-west-1.amazonaws.com/images/img-120.webp','vinh2','2019-05-01-12-31',true);

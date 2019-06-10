@@ -138,6 +138,7 @@ class Modal extends React.Component{
     };
     this.nextImage = this.nextImage.bind(this);
     this.report = this.report.bind(this);
+    this.postReport = this.postReport.bind(this);
     this.formatDate = this.formatDate.bind(this);
   }
 
@@ -160,9 +161,15 @@ class Modal extends React.Component{
   }
 
   report(){
-    this.setState({
-      report: !this.state.report,
-    });
+    this.setState({ report: !this.state.report });
+  }
+
+  postReport(e) {
+    const { target } = e;
+    const { currentPhoto } = this.state;
+    const reason = target.textContent;
+    this.report()
+    this.props.postFlag(reason, currentPhoto);
   }
 
   formatDate(date) {
@@ -194,14 +201,14 @@ class Modal extends React.Component{
           <OuterDiv className='outerDiv'>            
             <LeftArrow className='leftArrow' onClick={(e) => this.previousImage(e)}>&lt;</LeftArrow>            
               <ModalContentHolder className='modal-content-holder'>
-                <ModalContent className='modal-content' src={this.state.currentPhoto.file_path} />
+                <ModalContent className='modal-content' src={this.state.currentPhoto.url} />
                 <ModalFooter className='modal-footer'>
                   <CircleHolder className='circle-holder'>
                     <Circle className='circle'>OT</Circle>
                   </CircleHolder>
                   <TextHolder className='text-holder'>
-                    <Text className='text'>{this.state.currentPhoto.user}</Text>
-                    <DinedOn className='dinedOn'>{this.formatDate(this.state.currentPhoto.date_posted.slice(0,10))}</DinedOn>
+                    <Text className='text'>{this.state.currentPhoto.username}</Text>
+                    <DinedOn className='dinedOn'>{this.formatDate(this.state.currentPhoto.date.slice(0,10))}</DinedOn>
                   </TextHolder>
                   <FlagIcon onClick={(e) => this.report(e)} className='flag-icon' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
                     <path id='_24._Tiny_Flag_Icon' fill='#fff' data-name='24. Tiny Flag Icon' d='M485,475H469v12h-2V463h18l-3,6Zm-16-10v8h13l-2-4,2-4H469Z' transform='translate(-464 -463)'/>
@@ -217,20 +224,20 @@ class Modal extends React.Component{
     } else {
       return (
         <div>
-          <Flag report={this.report}/>
+          <Flag postReport={this.postReport} report={this.report}/>
           <ModalDiv id='simpleModal' className='modal'>
             <CloseBtn onClick={(e) => this.props.closeModal(e)} className='closeBtn'>&times;</CloseBtn>
             <OuterDiv className='outerDiv'>
               <LeftArrow className='leftArrow' onClick={(e) => this.previousImage(e)}>&lt;</LeftArrow>
                 <ModalContentHolder className='modal-content-holder'>
-                  <ModalContent className='modal-content' src={this.state.currentPhoto.file_path} />
+                  <ModalContent className='modal-content' src={this.state.currentPhoto.url} />
                   <ModalFooter className='modal-footer'>
                     <CircleHolder className='circle-holder'>
                       <Circle className='circle'>OT</Circle>
                     </CircleHolder>
                     <TextHolder className='text-holder'>
-                      <Text className='text'>{this.state.currentPhoto.user}</Text>
-                      <DinedOn className='dinedOn'>{this.formatDate(this.state.currentPhoto.date_posted.slice(0,10))}</DinedOn>
+                      <Text className='text'>{this.state.currentPhoto.username}</Text>
+                      <DinedOn className='dinedOn'>{this.formatDate(this.state.currentPhoto.date.slice(0,10))}</DinedOn>
                     </TextHolder>
                     <FlagIcon onClick={this.report} className='flag-icon' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
                       <path id='_24._Tiny_Flag_Icon' fill='#fff' data-name='24. Tiny Flag Icon' d='M485,475H469v12h-2V463h18l-3,6Zm-16-10v8h13l-2-4,2-4H469Z' transform='translate(-464 -463)'/>

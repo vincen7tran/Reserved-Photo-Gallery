@@ -1,0 +1,5 @@
+INSERT INTO restaurants (id,name,photos) VALUES (10000001,'Yum Cha',{});
+INSERT INTO restaurants (id,name,photos) VALUES (10000002,'In-n-Out',{});
+INSERT INTO restaurants (id,name,photos) VALUES (10000003,'HK Lounge',{});
+INSERT INTO restaurants (id,name,photos) VALUES (10000004,'Tselogs',{});
+INSERT INTO restaurants (id,name,photos) VALUES (10000005,'Japa Curry',{});

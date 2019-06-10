@@ -1,0 +1,5 @@
+INSERT INTO photos (id,date,flag,username) VALUES (150000005,'2019-04-26-12-11',false,'laura');
+INSERT INTO photos (id,date,flag,username) VALUES (150000006,'2019-03-05-11-31',false,'laura');
+INSERT INTO photos (id,date,flag,username) VALUES (150000007,'2019-02-11-08-01',false,'laura');
+INSERT INTO photos (id,date,flag,username) VALUES (150000008,'2019-01-15-10-51',false,'laura');
+INSERT INTO photos (id,date,flag,username) VALUES (150000009,'2019-04-12-09-43',false,'laura');

@@ -1,0 +1,6 @@
+SELECT photos FROM restaurants WHERE id = 555555;
+SELECT photos FROM restaurants WHERE id = 1111111;
+SELECT photos FROM restaurants WHERE id = 2222222;
+SELECT photos FROM restaurants WHERE id = 3333333;
+SELECT photos FROM restaurants WHERE id = 7777777;
+SELECT photos FROM restaurants WHERE id = 8888888;

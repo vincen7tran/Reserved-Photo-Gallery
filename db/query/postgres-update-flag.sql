@@ -1,0 +1,13 @@
+UPDATE photos SET flag = TRUE WHERE id = 500000;
+UPDATE photos SET flag = TRUE WHERE id = 1000000;
+UPDATE photos SET flag = TRUE WHERE id = 10000000;
+UPDATE photos SET flag = TRUE WHERE id = 50000000;
+UPDATE photos SET flag = TRUE WHERE id = 75000000;
+UPDATE photos SET flag = TRUE WHERE id = 100000000;
+UPDATE photos SET flag = TRUE WHERE id = 150000000;
+
+UPDATE photos SET flag = FALSE WHERE id = 150000000;
+UPDATE photos SET flag = FALSE WHERE id = 150000001;
+UPDATE photos SET flag = FALSE WHERE id = 150000002;
+UPDATE photos SET flag = FALSE WHERE id = 150000003;
+UPDATE photos SET flag = FALSE WHERE id = 150000004;
