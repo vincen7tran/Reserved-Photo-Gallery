@@ -21,11 +21,32 @@
 
 | API Endpoints  | Request Type | Input | Output | Description  |
 | ------------- | ------------- | ------------- | ------------- | ------------- | 
-| /API/restaurant/photo/:id | GET  | Restaurant ID  | Restaurant Document with Array of Photos | Gets photos for corresponding restaurant  |
+| /API/restaurant/photo/:id | GET  | Restaurant ID  | STATUS CODE 200 Restaurant Document with Array of Photos | Gets photos for corresponding restaurant  |
 | /API/restaurant/photo/ | POST  | Restaurant Document   | STATUS CODE 201  | Create a Restaurant Document  | 
 | /API/restaurant/photo/:id | PATCH  | Restaurant ID  | STATUS CODE 200  | Update a Restaurant Document  |
 | /API/restaurant/photo/:id | DELETE  | Restaurant ID  | STATUS CODE 200  | Delete a Restaurant Document  |
 
+API Response Body JSON Shape
+```javascript
+{
+  "photos":[
+    {
+      "id":1,
+      "url":"abc.com/1",
+      "username":"JaneDoe32",
+      "date":"2019-05-22-12-33",
+      "flag":false
+    },
+    {
+      "id":2,
+      "url":"abc.com/2",
+      "username":"JohnSmith444",
+      "date":"1993-11-01-05-10",
+      "flag":true
+    }
+  ]
+}
+```
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
