@@ -94,6 +94,17 @@ addFlag = (id, reason, date) => {
   });
 };
 
+deleteFlag = (id) => {
+  const q = 'DELETE FROM flags WHERE id = ' + id;
+
+  return new Promise((resolve, reject) => {
+    pool.query(q, (err, res) => {
+      if (err) return reject(err);
+      resolve(res);
+    });
+  });
+};
+
 module.exports = {
   getPhotos,
   getPhoto,
@@ -103,4 +114,5 @@ module.exports = {
   deletePhoto,
   flagPhoto,
   addFlag,
+  deleteFlag,
 };

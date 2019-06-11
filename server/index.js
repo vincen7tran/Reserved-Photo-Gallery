@@ -55,7 +55,7 @@ app.patch('/photo/url', async (req, res) => {
 
 app.patch('/photo/user', async (req, res) => {
   const { id, username } = req.query;
-  
+
   try {
     await db.updatePhotoUser(id, username);
     res.sendStatus(200);
@@ -81,6 +81,17 @@ app.post('/flag', async (req, res) => {
   try {
     await db.flagPhoto(id);
     await db.addFlag(id, reason, date);
+    res.sendStatus(200);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.delete('/flag/:id', async (req, res) => {
+  const id = req.query;
+
+  try {
+    await db.deleteFlag(id);
     res.sendStatus(200);
   } catch (e) {
     res.status(400).send(e);
