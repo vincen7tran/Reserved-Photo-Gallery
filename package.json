@@ -39,6 +39,7 @@
     "imagemin": "^6.1.0",
     "imagemin-webp": "^5.1.0",
     "jest": "^24.8.0",
+    "newrelic": "^5.9.1",
     "style-loader": "^0.23.1",
     "styled-components": "^4.2.1",
     "webpack": "^4.31.0",

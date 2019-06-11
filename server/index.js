@@ -15,12 +15,64 @@ app.get('/API/restaurant/photo/:id', (req, res) => {
   const id = req.params.id;
 
   db.getPhotos(id, (err, { rows }) => {
-    if (err) {
-      console.log('Failed to get photos!');
-      res.sendStatus(500);
-    }
+    if (err) return res.sendStatus(500);
     res.status(200).send(rows);
   });
+});
+
+app.get('/photo/:id', async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+    const { rows } = await db.getPhoto(id);
+    res.status(200).send(rows);
+  } catch (e) {
+    res.status(404).send(e);
+  }
+});
+
+app.post('/photo', async (req, res) => {
+  const { r_id, url, username, date } = req.body.params;
+
+  try {
+    const photo = await db.addPhoto(r_id, url, username, date);
+    res.status(201).send(photo);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.patch('/photo/url', async (req, res) => {
+  const { id, url } = req.query;
+  
+  try {
+    await db.updatePhotoURL(id, url);
+    res.sendStatus(200);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.patch('/photo/user', async (req, res) => {
+  const { id, username } = req.query;
+  
+  try {
+    await db.updatePhotoUser(id, username);
+    res.sendStatus(200);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
+
+app.delete('/photo/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const photo = await db.deletePhoto(id);
+    res.status(200).send(photo);
+  } catch (e) {
+    res.status(400).send(e);
+  }
 });
 
 app.post('/flag', async (req, res) => {
@@ -31,12 +83,12 @@ app.post('/flag', async (req, res) => {
     await db.addFlag(id, reason, date);
     res.sendStatus(200);
   } catch (e) {
-    res.status(401).send(e);
+    res.status(400).send(e);
   }
 });
 
-app.get('/*', (req, res) => {
+app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist') + '/index.html');
-})
+});
 
 app.listen(port, () => console.log( 'Listening on port ' + port ));
