@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
 import Gallery from './components/Gallery.jsx';
 
 
-ReactDOM.render(<Gallery />, document.getElementById('photos'));
+
+ReactDOM.render(
+  <BrowserRouter>
+    <Route path='/:id' component={Gallery} />
+  </BrowserRouter>
+  , document.getElementById('photos'));

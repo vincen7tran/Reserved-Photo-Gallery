@@ -127,8 +127,7 @@ class Gallery extends React.Component{
   }
 
   getPhotos(){
-    const path = window.location.pathname;
-    const id = path.slice(1);
+    const { id } = this.props.match.params;
 
     axios.get(`/API/restaurant/photo/${id}`)
       .then(({  data }) => this.setState({ displayedImages: data }))
