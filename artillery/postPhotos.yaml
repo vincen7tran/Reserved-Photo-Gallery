@@ -1,0 +1,19 @@
+config:
+  target: 'http://localhost:3002'
+  phases:
+    - duration: 30
+      arrivalRate: 5
+  processor: './randomPhotoPost.js'
+scenarios:
+  - flow:
+    - loop:
+      - function: "postPhoto"
+      - post:
+          url: "/photo"
+          json:
+            r_id: "{{ $randomNumber(1,10000000) }}"
+            url: "{{ url }}"
+            username: "{{ username }}"
+            date: "{{ date }}"
+      count: 1000
+    - log: "POST Request to /photo with {{ username }}, {{ date }}"

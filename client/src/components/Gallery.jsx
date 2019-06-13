@@ -127,7 +127,10 @@ class Gallery extends React.Component{
   }
 
   getPhotos(){
-    const { id } = this.props.match.params;
+    const path = window.location.pathname;
+    const id = path.slice(1);
+    // const { id } = this.props.match.params;
+    // const id = Math.ceil(Math.random() * 10)
 
     axios.get(`/API/restaurant/photo/${id}`)
       .then(({  data }) => this.setState({ displayedImages: data }))

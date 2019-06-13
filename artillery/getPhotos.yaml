@@ -1,0 +1,11 @@
+config:
+  target: 'http://localhost:3002'
+  phases:
+    - duration: 30
+      arrivalRate: 5
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/API/restaurant/photo/{{ $randomNumber(1,10000000) }}"
+      count: 1000

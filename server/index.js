@@ -33,7 +33,7 @@ app.get('/photo/:id', async (req, res) => {
 });
 
 app.post('/photo', async (req, res) => {
-  const { r_id, url, username, date } = req.body.params;
+  const { r_id, url, username, date } = req.body;
 
   try {
     const photo = await db.addPhoto(r_id, url, username, date);
@@ -100,7 +100,7 @@ app.delete('/flag/:id', async (req, res) => {
 });
 
 app.get('/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist') + '/index.html');
+  res.status(200).sendFile(path.join(__dirname, '../client/dist') + '/index.html');
 });
 
 app.listen(port, () => console.log( 'Listening on port ' + port ));
