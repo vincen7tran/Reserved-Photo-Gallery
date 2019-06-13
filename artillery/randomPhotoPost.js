@@ -18,6 +18,20 @@ const postPhoto = (context, events, done) => {
   return done();
 };
 
+const flagPhoto = (context, events, done) => {
+  const reasons = ['Unrelated to restaurant', 'Inappropriate content', "I don't like this photo"];
+
+  const id = Math.ceil(Math.random() * 140431547);
+  const reason = reasons[Math.floor(Math.random() * 2)];
+  const date = moment(faker.date.past()).format('YYYY-MM-DD-HH-MM');
+
+  context.vars.id = id;
+  context.vars.reason = reason;
+  context.vars.date = date;
+  return done();
+};
+
 module.exports = {
   postPhoto,
+  flagPhoto
 };

@@ -69,6 +69,7 @@ app.delete('/photo/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
+    await db.deleteFlagsByPhoto(id);
     const photo = await db.deletePhoto(id);
     res.status(200).send(photo);
   } catch (e) {

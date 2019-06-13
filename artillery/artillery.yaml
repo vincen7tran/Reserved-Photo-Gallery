@@ -1,0 +1,36 @@
+config:
+  target: 'http://localhost:3002'
+  phases:
+    - duration: 10
+      arrivalRate: 100
+  processor: './randomPhotoPost.js'
+scenarios:
+  - weight: 98/1000
+    flow:
+    - loop:
+      - function: "postPhoto"
+      - post:
+          url: "/photo"
+          json:
+            r_id: "{{ $randomNumber(1,10000000) }}"
+            url: "{{ url }}"
+            username: "{{ username }}"
+            date: "{{ date }}"
+      count: 100
+  - weight: 900/1000
+    flow:
+    - loop:
+      - get:
+          url: "/API/restaurant/photo/{{ $randomNumber(1,10000000) }}"
+      count: 100
+  - weight: 2/1000
+    flow:
+    - loop:
+      - function: "flagPhoto"
+      - post:
+          url: "/flag"
+          json:
+            id: "{{ id }}"
+            reason: "{{ reason }}"
+            date: "{{ date }}"
+      count: 100
