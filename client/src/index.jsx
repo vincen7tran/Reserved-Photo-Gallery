@@ -9,5 +9,6 @@ import Gallery from './components/Gallery.jsx';
 ReactDOM.render(
   <BrowserRouter>
     <Route path='/:id' component={Gallery} />
-  </BrowserRouter>
-  , document.getElementById('photos'));
+  </BrowserRouter>,
+  document.getElementById('photos'));
+  
