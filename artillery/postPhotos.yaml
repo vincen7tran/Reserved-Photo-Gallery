@@ -2,7 +2,7 @@ config:
   target: 'http://localhost:3002'
   phases:
     - duration: 30
-      arrivalRate: 1000
+      arrivalRate: 5
   processor: './randomPhotoPost.js'
 scenarios:
   - flow:
@@ -15,4 +15,5 @@ scenarios:
             url: "{{ url }}"
             username: "{{ username }}"
             date: "{{ date }}"
-      count: 3
+      count: 1000
+    - log: "POST Request to /photo with {{ username }}, {{ date }}"
