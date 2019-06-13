@@ -77,7 +77,7 @@ app.delete('/photo/:id', async (req, res) => {
 });
 
 app.post('/flag', async (req, res) => {
-  const { id, reason, date } = req.body.params;
+  const { id, reason, date } = req.body;
 
   try {
     await db.flagPhoto(id);

@@ -146,11 +146,9 @@ class Gallery extends React.Component{
     const date = moment(new Date()).format('YYYY-MM-DD-HH-MM');
 
     axios.post('/flag', {
-      params: {
-        id,
-        reason,
-        date,
-      }
+      id,
+      reason,
+      date,
     });
   }
 
